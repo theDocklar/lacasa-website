@@ -23,7 +23,7 @@ const HistoryPage = () => {
 			{/* / History Block */}
 
 			{/* Badges Block */}
-			<BadgesList {...badgesListData} />
+			{/* <BadgesList {...badgesListData} /> */}
 			{/* / Badges Block */}
 		</>
 	);

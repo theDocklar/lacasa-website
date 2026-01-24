@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import LogoLink from "@/app/components/common/logo/logoLink";
 import { LogoData, socialIconsData } from "@/app/hooks/data-general";
 import { itemsNavbar } from "@/app/hooks/data-navbar";
@@ -22,6 +23,8 @@ const SCROLL_THROTTLE_LIMIT = 200; // Throttle limit in ms
 const Header: React.FC = () => {
 	const [isSticky, setIsSticky] = useState(false);
 	const [isMobile, setIsMobile] = useState(false);
+	const pathname = usePathname();
+	const isHomePage = pathname === "/";
 
 	/**
 	 * Effect to handle the sticky header functionality.
@@ -78,12 +81,20 @@ const Header: React.FC = () => {
 												"has-children",
 										)}
 									>
-										<Link href={item.link}>{item.title}</Link>
+										{isHomePage ? (
+											<span>{item.title}</span>
+										) : (
+											<Link href={item.link}>{item.title}</Link>
+										)}
 										{item.children && item.children.length > 0 && (
 											<ul className="dropdown-menu">
 												{item.children.map((child) => (
 													<li key={child.id}>
-														<Link href={child.link}>{child.title}</Link>
+														{isHomePage ? (
+															<span>{child.title}</span>
+														) : (
+															<Link href={child.link}>{child.title}</Link>
+														)}
 													</li>
 												))}
 											</ul>

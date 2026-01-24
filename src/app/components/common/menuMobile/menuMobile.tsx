@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { FaAngleRight } from "react-icons/fa6";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { itemsNavbar } from "@/app/hooks/data-navbar";
 import { NavItem, MenuMobileProps } from "@/app/types/common.types";
 import { MenuMobileData } from "@/app/hooks/data-mobile-menu";
@@ -26,6 +27,8 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 	const [delayedIsMobile, setDelayedIsMobile] = useState(false);
 	const [activeSubMenuId, setActiveSubMenuId] = useState<number | null>(null);
 	const menuContentRef = useRef<HTMLDivElement>(null);
+	const pathname = usePathname();
+	const isHomePage = pathname === "/";
 
 	/**
 	 * Effect to add a delay to the `isMobile` state.
@@ -162,13 +165,19 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 										{item.children && item.children.length > 0 ? (
 											<>
 												<div className="menu-mobile__nav-item__title">
-													<Link
-														href={item.link}
-														className="menu-mobile__nav-link"
-														onClick={handleClose}
-													>
-														{item.title}
-													</Link>
+													{isHomePage ? (
+														<span className="menu-mobile__nav-link">
+															{item.title}
+														</span>
+													) : (
+														<Link
+															href={item.link}
+															className="menu-mobile__nav-link"
+															onClick={handleClose}
+														>
+															{item.title}
+														</Link>
+													)}
 													<div
 														className="menu-mobile__nav-icon"
 														onClick={() => handleSubMenuTriggerClick(item.id)}
@@ -191,26 +200,38 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 																key={childItem.id}
 																className="menu-mobile__nav-submenu-item"
 															>
-																<Link
-																	href={childItem.link}
-																	className="menu-mobile__nav-link"
-																	onClick={handleClose}
-																>
-																	{childItem.title}
-																</Link>
+																{isHomePage ? (
+																	<span className="menu-mobile__nav-link">
+																		{childItem.title}
+																	</span>
+																) : (
+																	<Link
+																		href={childItem.link}
+																		className="menu-mobile__nav-link"
+																		onClick={handleClose}
+																	>
+																		{childItem.title}
+																	</Link>
+																)}
 															</li>
 														))}
 													</ul>
 												</div>
 											</>
 										) : (
-											<Link
-												href={item.link}
-												className="menu-mobile__nav-link"
-												onClick={handleClose}
-											>
-												{item.title}
-											</Link>
+											isHomePage ? (
+												<span className="menu-mobile__nav-link">
+													{item.title}
+												</span>
+											) : (
+												<Link
+													href={item.link}
+													className="menu-mobile__nav-link"
+													onClick={handleClose}
+												>
+													{item.title}
+												</Link>
+											)
 										)}
 									</li>
 								))}

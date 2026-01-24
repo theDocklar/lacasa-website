@@ -35,7 +35,7 @@ const PageHomeCreative = () => {
 			{/* / Special Offers - Block */}
 
 			{/* Badges - Block */}
-			<BadgesList {...badgesListData} />
+			{/* <BadgesList {...badgesListData} /> */}
 			{/* / Badges - Block */}
 
 			{/* Week Specials - Block */}
@@ -51,11 +51,11 @@ const PageHomeCreative = () => {
 			{/* / CTA - Block */}
 
 			{/* Gallery */}
-			<GalleryBasic {...galleryData} />
+			{/* <GalleryBasic {...galleryData} /> */}
 			{/* / Gallery */}
 
 			{/* Team */}
-			<TeamBlock {...teamBlockData} />
+			{/* <TeamBlock {...teamBlockData} /> */}
 			{/* / Team */}
 		</>
 	);

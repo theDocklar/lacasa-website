@@ -15,7 +15,7 @@ export const specialOffersData = {
 			tag: "Specialty",
 			title: "Four cheese garlic bread",
 			price: "$32.00",
-			image: "/special-offers/special-offers-5.jpg",
+			image: "/special-offers/special-offers-1.jpg",
 			altText: "Four cheese garlic bread",
 			description_primary:
 				"Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.",

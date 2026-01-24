@@ -38,7 +38,7 @@ const PageMenu = () => {
 			{/* / CtaTwo - Block */}
 
 			{/* Badges - Block */}
-			<BadgesList {...badgesListData} />
+			{/* <BadgesList {...badgesListData} /> */}
 			{/* / Badges - Block */}
 
 			{/* Gallery */}

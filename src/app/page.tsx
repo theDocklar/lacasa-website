@@ -1,3 +1,3 @@
-import PageTemplate from "./(routes)/intro/page";
+import PageTemplate from "./(routes)/home-creative/page";
 
 export default PageTemplate;

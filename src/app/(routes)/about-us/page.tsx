@@ -39,7 +39,7 @@ const AboutPage = () => {
 			{/* / About Modern - Block */}
 
 			{/* Badges Block */}
-			<BadgesList {...badgesListData} />
+			{/* <BadgesList {...badgesListData} /> */}
 			{/* / Badges Block */}
 
 			{/* Testimonials Block */}
