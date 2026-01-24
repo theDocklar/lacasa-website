@@ -74,30 +74,12 @@ const Header: React.FC = () => {
 								{itemsNavbar.map((item) => (
 									<li
 										key={item.id}
-										className={cn(
-											"dropdown simple-dropdown",
-											item.children &&
-												item.children.length > 0 &&
-												"has-children",
-										)}
+										className="dropdown simple-dropdown"
 									>
 										{isHomePage ? (
 											<span>{item.title}</span>
 										) : (
 											<Link href={item.link}>{item.title}</Link>
-										)}
-										{item.children && item.children.length > 0 && (
-											<ul className="dropdown-menu">
-												{item.children.map((child) => (
-													<li key={child.id}>
-														{isHomePage ? (
-															<span>{child.title}</span>
-														) : (
-															<Link href={child.link}>{child.title}</Link>
-														)}
-													</li>
-												))}
-											</ul>
 										)}
 									</li>
 								))}

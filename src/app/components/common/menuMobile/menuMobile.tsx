@@ -25,7 +25,6 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 	defaultMenuTitle = MenuMobileData.defaultMenuTitle,
 }) => {
 	const [delayedIsMobile, setDelayedIsMobile] = useState(false);
-	const [activeSubMenuId, setActiveSubMenuId] = useState<number | null>(null);
 	const menuContentRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
 	const isHomePage = pathname === "/";
@@ -73,36 +72,8 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 		};
 	}, [isMobile, handleClose]);
 
-	/**
-	 * Effect to reset the active submenu when the main menu is closed.
-	 * Ensures a clean state next time the menu is opened.
-	 */
-	useEffect(() => {
-		if (!isMobile) {
-			const timer = setTimeout(() => {
-				setActiveSubMenuId(null);
-			}, 300); // Delay matches the closing animation for a smooth transition.
-			return () => clearTimeout(timer);
-		}
-	}, [isMobile]);
 
-	/**
-	 * Navigates back to the main menu from a submenu.
-	 */
-	const handleBackClick = () => {
-		setActiveSubMenuId(null);
-	};
-
-	/**
-	 * Sets the active submenu based on the item ID clicked.
-	 * @param {number} itemId The ID of the menu item that triggers the submenu.
-	 */
-	const handleSubMenuTriggerClick = (itemId: number) => {
-		setActiveSubMenuId(itemId);
-	};
-
-	const activeMenuItem = itemsNavbar.find((item) => item.id === activeSubMenuId);
-	const menuTitle = activeMenuItem ? activeMenuItem.title : defaultMenuTitle;
+	const menuTitle = defaultMenuTitle;
 
 	// Early return if not in mobile view to avoid rendering an empty component
 	if (!isMobile && !delayedIsMobile) {
@@ -124,16 +95,6 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 					})}
 				>
 					<div className="menu-mobile__header">
-						<div
-							className={cn("menu-mobile__back", {
-								"back-active": activeSubMenuId !== null,
-							})}
-							onClick={handleBackClick}
-							onKeyDown={(e) => e.key === "Enter" && handleBackClick()}
-							role="button"
-							tabIndex={activeSubMenuId !== null ? 0 : -1}
-							aria-label={ariaLabelGoBack}
-						></div>
 						<div className="menu-mobile__title">
 							<span>{menuTitle}</span>
 						</div>
@@ -146,92 +107,26 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
 							aria-label={ariaLabelCloseMenu}
 						></div>
 					</div>
-					<div
-						className={cn("menu-mobile__nav", {
-							"submenu-active": activeSubMenuId !== null,
-						})}
-					>
+					<div className="menu-mobile__nav">
 						<div className="menu-mobile__nav-content">
 							<ul className="menu-mobile__nav-list">
 								{itemsNavbar.map((item: NavItem) => (
 									<li
 										key={item.id}
-										className={cn("menu-mobile__nav-item", {
-											"nav-item__has-children":
-												item.children && item.children.length > 0,
-											"show-menu": activeSubMenuId === item.id,
-										})}
+										className="menu-mobile__nav-item"
 									>
-										{item.children && item.children.length > 0 ? (
-											<>
-												<div className="menu-mobile__nav-item__title">
-													{isHomePage ? (
-														<span className="menu-mobile__nav-link">
-															{item.title}
-														</span>
-													) : (
-														<Link
-															href={item.link}
-															className="menu-mobile__nav-link"
-															onClick={handleClose}
-														>
-															{item.title}
-														</Link>
-													)}
-													<div
-														className="menu-mobile__nav-icon"
-														onClick={() => handleSubMenuTriggerClick(item.id)}
-														onKeyDown={(e) =>
-															e.key === "Enter" &&
-															handleSubMenuTriggerClick(item.id)
-														}
-														role="button"
-														tabIndex={0}
-														aria-label={`${ariaLabelSubmenu} ${item.title}`}
-														aria-expanded={activeSubMenuId === item.id}
-													>
-														<FaAngleRight />
-													</div>
-												</div>
-												<div className="menu-mobile__nav-submenu">
-													<ul className="menu-mobile__nav-submenu-list">
-														{item.children.map((childItem) => (
-															<li
-																key={childItem.id}
-																className="menu-mobile__nav-submenu-item"
-															>
-																{isHomePage ? (
-																	<span className="menu-mobile__nav-link">
-																		{childItem.title}
-																	</span>
-																) : (
-																	<Link
-																		href={childItem.link}
-																		className="menu-mobile__nav-link"
-																		onClick={handleClose}
-																	>
-																		{childItem.title}
-																	</Link>
-																)}
-															</li>
-														))}
-													</ul>
-												</div>
-											</>
+										{isHomePage ? (
+											<span className="menu-mobile__nav-link">
+												{item.title}
+											</span>
 										) : (
-											isHomePage ? (
-												<span className="menu-mobile__nav-link">
-													{item.title}
-												</span>
-											) : (
-												<Link
-													href={item.link}
-													className="menu-mobile__nav-link"
-													onClick={handleClose}
-												>
-													{item.title}
-												</Link>
-											)
+											<Link
+												href={item.link}
+												className="menu-mobile__nav-link"
+												onClick={handleClose}
+											>
+												{item.title}
+											</Link>
 										)}
 									</li>
 								))}
