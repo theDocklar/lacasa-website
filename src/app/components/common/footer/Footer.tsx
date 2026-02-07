@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 							<Link href={`tel:${InfoGeneralData.phone.replace(/\s/g, '')}`}>
 								{InfoGeneralData.phoneLabel} {InfoGeneralData.phone}
 							</Link>
-							<Link href={`https://wa.me/94773777654`}>
+							<Link href={`https://wa.me/94${InfoGeneralData.phone.replace(/\s/g, '').replace(/^0/, '')}`}>
 								{InfoGeneralData.faxLabel} {InfoGeneralData.fax}
 							</Link>
 							<Link

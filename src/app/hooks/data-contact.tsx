@@ -57,14 +57,14 @@ export const locationsData = {
 	items: [
 		{
 			id: 1,
-			name: "LaCasa Negombo",
-			addressLine1: "No 50/A Thaladuwa Road Negombo,",
-			addressLine2: "Negombo, Sri Lanka, 11500",
-			phone: "074 391 4331",
-			email: "lacasacafeandrestaurant@gmail.com",
+			name: "Giovanni's Presto Pizza",
+			addressLine1: "145 Thimbirigasyaya Rd,",
+			addressLine2: "Colombo 00500, Sri Lanka",
+			phone: "077 033 5366",
+			email: "info@giovannisprestopizza.com",
 			imageSrc: "/locations/location-1.jpg",
-			imageAltText: "Image of the LaCasa Negombo location",
-			directionLink: "https://www.google.com/maps", // Replace with actual direction link
+			imageAltText: "Image of Giovanni's Presto Pizza location",
+			directionLink: "https://www.google.com/maps",
 			directionButtonText: "Get direction",
 		},
 	],

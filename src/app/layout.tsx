@@ -3,21 +3,21 @@ import "./globals.css";
 import LayoutProvider from "./LayoutProvider";
 
 export const metadata: Metadata = {
-	title: "LaCasa – Elegant Restaurant & Cafe",
-	description: "LaCasa Restaurant & Cafe in Negombo, Sri Lanka. Experience authentic flavors and warm hospitality at No 50/A Thaladuwa Road Negombo.",
+	title: "Giovanni's Presto Pizza – Colombo",
+	description: "Giovanni's Presto Pizza at 145 Thimbirigasyaya Rd, Colombo 00500. Fresh pizza and Italian flavors in Colombo.",
 	keywords:
-		"restaurant, cafe, food, menu, reservation, booking, Negombo, Sri Lanka, LaCasa, restaurant Negombo, cafe Negombo, dining Negombo",
-	authors: [{ name: "LaCasa", url: "http://lacasasrilanka.com" }],
-	creator: "LaCasa Restaurant",
-	publisher: "LaCasa Restaurant",
-	metadataBase: new URL("http://lacasasrilanka.com"),
+		"pizza, Italian food, Colombo, Sri Lanka, Giovanni's Presto Pizza, restaurant Colombo, pizza Colombo, delivery",
+	authors: [{ name: "Giovanni's Presto Pizza", url: "https://giovannisprestopizza.com" }],
+	creator: "Giovanni's Presto Pizza",
+	publisher: "Giovanni's Presto Pizza",
+	metadataBase: new URL("https://giovannisprestopizza.com"),
 	alternates: {
-		canonical: "http://lacasasrilanka.com",
+		canonical: "https://giovannisprestopizza.com",
 	},
 	openGraph: {
-		title: "LaCasa – Elegant Restaurant & Cafe",
-		description: "LaCasa Restaurant & Cafe in Negombo, Sri Lanka. Experience authentic flavors and warm hospitality.",
-		url: "http://lacasasrilanka.com",
+		title: "Giovanni's Presto Pizza – Colombo",
+		description: "Giovanni's Presto Pizza at 145 Thimbirigasyaya Rd, Colombo 00500.",
+		url: "https://giovannisprestopizza.com",
 	},
 	icons: {
 		icon: "/favicon.jpg",

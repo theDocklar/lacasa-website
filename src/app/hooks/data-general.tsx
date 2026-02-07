@@ -1,21 +1,22 @@
-import { FaFacebookF, FaXTwitter, FaInstagram, FaTiktok } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa6";
 import { StatusPageProps } from "@/app/types/common.types";
 
 export const InfoGeneralData = {
 	urlLogo: "/logo.png",
 	urlMap: "https://www.google.com/maps",
-	phone: "074 391 4331",
-	fax: "+94 77 377 7654",
-	emailInfo: "lacasacafeandrestaurant@gmail.com",
-	emailReservations: "lacasacafeandrestaurant@gmail.com",
-	address: "No 50/A Thaladuwa Road Negombo",
-	city: "Negombo",
-	zip: "11500",
+	website: "https://giovannisprestopizza.com",
+	phone: "077 033 5366",
+	fax: "077 033 5366",
+	emailInfo: "info@giovannisprestopizza.com",
+	emailReservations: "info@giovannisprestopizza.com",
+	address: "145 Thimbirigasyaya Rd",
+	city: "Colombo",
+	zip: "00500",
 	country: "LK",
 	largeCountry: "Sri Lanka",
 	phoneLabel: "Phone:",
 	faxLabel: "WhatsApp:",
-	copyright: "© 2025 LaCasa Restaurant.",
+	copyright: "© 2025 Giovanni's Presto Pizza.",
 	scrollToTopLabel: "Go to top",
 	scrollToTopIconClasses: "fas fa-angle-double-up",
 	menuToggleAriaLabelOpen: "Open menu",
@@ -63,12 +64,7 @@ export const menuLegalData = [
 
 export const socialIconsData = [
 	{
-		href: "https://www.tiktok.com/@lacasanegombo",
-		ariaLabel: "TikTok",
-		icon: FaTiktok,
-	},
-	{
-		href: "https://www.instagram.com/la_casa_negombo",
+		href: "https://www.instagram.com/giovannis.presto.pizza",
 		ariaLabel: "Instagram",
 		icon: FaInstagram,
 	},
